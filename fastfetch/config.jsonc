@@ -1,0 +1,131 @@
+// Fastfetch config — XYNORASH theme
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "raw",
+    "source": "xynorash.txt",
+    "width": 150,
+    "height": 32,
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 2
+    }
+  },
+
+  "display": {
+    "separator": "  →  ",
+    "color": {
+      "keys": "38;2;170;0;255",
+      "title": "38;2;0;229;255"
+    },
+    "bar": {
+      "width": 20,
+      "char": { "elapsed": "█", "total": "░" },
+      "border": { "left": "▐", "right": "▌" }
+    }
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "user": "38;2;0;229;255",
+        "at":   "38;2;100;100;180",
+        "host": "38;2;170;0;255"
+      }
+    },
+    {
+      "type": "separator",
+      "string": "─────────────────────────────────"
+    },
+
+    { "type": "os",       "key": "󰍲  OS",     "keyColor": "38;2;170;0;255" },
+    { "type": "kernel",   "key": "󰍛  Kernel", "keyColor": "38;2;170;0;255" },
+    { "type": "host",     "key": "󰒋  Board",  "keyColor": "38;2;170;0;255", "format": "{2}" },
+    { "type": "uptime",   "key": "󰅐  Uptime", "keyColor": "38;2;0;229;255" },
+    { "type": "packages", "key": "󰏗  Pkgs",   "keyColor": "38;2;0;229;255" },
+    { "type": "processes","key": "󰄹  Procs",  "keyColor": "38;2;0;229;255" },
+    "break",
+
+    { "type": "shell",    "key": "󰍛  Shell", "keyColor": "38;2;0;229;170" },
+    { "type": "terminal", "key": "󰍛  Term",  "keyColor": "38;2;0;229;170" },
+    { "type": "font",     "key": "󰍛  Font",  "keyColor": "38;2;0;229;170" },
+    "break",
+
+    { "type": "cpu",    "key": "󰍛  CPU",     "keyColor": "38;2;255;170;0" },
+    {
+      "type": "physicalMemory",
+      "key": "󰍛  DDR",
+      "keyColor": "38;2;255;170;0",
+      "format": "{2} {5}-{3}"
+    },
+    {
+      "type": "gpu",
+      "key": "󰢮  GPU",
+      "keyColor": "38;2;255;100;50",
+      "detectionType": "auto"
+    },
+    { "type": "display",  "key": "󰍹  Display","keyColor": "38;2;255;100;50" },
+    "break",
+
+    { "type": "vulkan", "key": "󰆧  Vulkan", "keyColor": "38;2;255;50;150" },
+    { "type": "openGL", "key": "󰍛  OpenGL", "keyColor": "38;2;255;50;150" },
+    "break",
+
+    {
+      "type": "cpuUsage",
+      "key": "󰍛  CPU%",
+      "keyColor": "38;2;0;229;255",
+      "percent": { "type": 3 }
+    },
+    {
+      "type": "memory",
+      "key": "󰍛  RAM ",
+      "keyColor": "38;2;170;0;255",
+      "format": "{4} {1} / {2}",
+      "percent": { "type": 2 }
+    },
+    {
+      "type": "swap",
+      "key": "󰾴  Swap",
+      "keyColor": "38;2;170;0;255",
+      "format": "{4} {1} / {2}",
+      "percent": { "type": 2 }
+    },
+    {
+      "type": "disk",
+      "key": "󰋊  C:\\ ",
+      "keyColor": "38;2;238;0;238",
+      "folders": "C:\\",
+      "percent": { "type": 2 }
+    },
+    {
+      "type": "disk",
+      "key": "󰋊  F:\\ ",
+      "keyColor": "38;2;238;0;238",
+      "folders": "F:\\",
+      "percent": { "type": 2 }
+    },
+    {
+      "type": "sound",
+      "key": "󰕾  Vol ",
+      "keyColor": "38;2;0;229;170",
+      "format": "{6} {4}",
+      "percent": { "type": 3 }
+    },
+    "break",
+
+    {
+      "type": "media",
+      "key": "󰝚  Now",
+      "keyColor": "38;2;255;200;50",
+      "format": "{3}  {1}"
+    },
+    "break",
+
+    { "type": "colors", "paddingLeft": 1, "symbol": "circle" },
+    { "type": "colors", "paddingLeft": 1, "symbol": "block" }
+  ]
+}

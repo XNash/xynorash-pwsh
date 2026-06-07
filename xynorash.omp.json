@@ -1,0 +1,370 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 4,
+  "final_space": true,
+  "blank_line_before_prompt": true,
+  "disable_notice": true,
+  "shell_integration": true,
+  "transient_prompt": {
+    "foreground": "#00E5AA",
+    "foreground_templates": [
+      "{{ if gt .Code 0 }}#FF6432{{ end }}"
+    ],
+    "background": "transparent",
+    "template": "{{ if gt .Code 0 }}✗{{ else }}❯{{ end }} "
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "plain",
+          "foreground": "#AA00FF",
+          "template": "╭─ {{ .Icon }} ",
+          "properties": {
+            "windows": "󰍲"
+          }
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#00E5AA",
+          "template": "{{ if env \"SSH_CLIENT\" }}<#FFAA00>󰢩 </>{{ end }}<#FF3296>{{ .UserName }}</>{{ if env \"XYNO_IS_ADMIN\" }}<#FF4488> 󰒃</>{{ end }}<#555>@</>{{ .HostName }} "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "{{ .Path }} ",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": 3,
+            "folder_separator_icon": "/",
+            "truncation_symbol": "…/"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#AA00FF",
+          "foreground_templates": [
+            "{{ if gt .Working.Changed 0 }}#FFAA00{{ end }}",
+            "{{ if and (eq .Working.Changed 0) (gt .Staging.Changed 0) }}#00E5AA{{ end }}"
+          ],
+          "template": "▸  {{ .HEAD }}{{ if gt .Ahead 0 }} ⇡{{ .Ahead }}{{ end }}{{ if gt .Behind 0 }} ⇣{{ .Behind }}{{ end }}{{ if gt .Working.Changed 0 }} <#FF6432>~{{ .Working.Changed }}</>{{ end }}{{ if gt .Staging.Changed 0 }} <#FF3296>+{{ .Staging.Changed }}</>{{ end }}{{ if gt .Working.Untracked 0 }} <#FF3296>?{{ .Working.Untracked }}</>{{ end }}{{ if gt .StashCount 0 }} <#FFC832>󰆓{{ .StashCount }}</>{{ end }} ",
+          "properties": {
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#444",
+          "template": "▸"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "│ "
+        },
+        {
+          "type": "rust",
+          "style": "plain",
+          "foreground": "#FF6432",
+          "template": " 󱘗 {{ .Full }} ▸"
+        },
+        {
+          "type": "java",
+          "style": "plain",
+          "foreground": "#FFC832",
+          "template": " ☕ {{ .Full }} ▸"
+        },
+        {
+          "type": "dotnet",
+          "style": "plain",
+          "foreground": "#AA00FF",
+          "template": " 󰪮 {{ .Full }} ▸"
+        },
+        {
+          "type": "flutter",
+          "style": "plain",
+          "foreground": "#00E5AA",
+          "template": " 󰑴 {{ .Full }} ▸"
+        },
+        {
+          "type": "dart",
+          "style": "plain",
+          "foreground": "#00E5AA",
+          "template": " 󰑣 {{ .Full }} ▸"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰎙 {{ .Full }} ▸"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰌠 {{ .Full }} ▸"
+        },
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰟓 {{ .Full }} ▸"
+        },
+        {
+          "type": "ruby",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰴭 {{ .Full }} ▸"
+        },
+        {
+          "type": "php",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰌟 {{ .Full }} ▸"
+        },
+        {
+          "type": "lua",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰢱 {{ .Full }} ▸"
+        },
+        {
+          "type": "kotlin",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󱈙 {{ .Full }} ▸"
+        },
+        {
+          "type": "swift",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰛥 {{ .Full }} ▸"
+        },
+        {
+          "type": "zig",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󱐋 {{ .Full }} ▸"
+        },
+        {
+          "type": "cmake",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰙷 {{ .Full }} ▸"
+        },
+        {
+          "type": "crystal",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰌳 {{ .Full }} ▸"
+        },
+        {
+          "type": "nim",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰆥 {{ .Full }} ▸"
+        },
+        {
+          "type": "haskell",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰲒 {{ .Full }} ▸"
+        },
+        {
+          "type": "elixir",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "erlang",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "julia",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "perl",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "r",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰟔 {{ .Full }} ▸"
+        },
+        {
+          "type": "scala",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "ocaml",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "deno",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰛵 {{ .Full }} ▸"
+        },
+        {
+          "type": "angular",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": " 󰚿 {{ .Full }} ▸"
+        },
+        {
+          "type": "quasar",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "elm",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "v",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "bazel",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "buf",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "  {{ .Full }} ▸"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#FFAA00",
+          "template": "{{ if env \"XYNO_CPU\" }} 󰍛 {{ env \"XYNO_CPU\" }}% ▸{{ end }}"
+        },
+        {
+          "type": "sysinfo",
+          "style": "plain",
+          "foreground": "#FFAA00",
+          "template": " 󰘚 {{ .PhysicalPercentUsed | printf \"%.0f\" }}% ▸"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#EE00EE",
+          "template": "{{ if env \"XYNO_DISK_C\" }} 󰋊 C:{{ env \"XYNO_DISK_C\" }}% ▸{{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#EE00EE",
+          "template": "{{ if env \"XYNO_DISK_F\" }} 󰋊 F:{{ env \"XYNO_DISK_F\" }}% ▸{{ end }}"
+        },
+        {
+          "type": "battery",
+          "style": "plain",
+          "foreground": "#FFAA00",
+          "foreground_templates": [
+            "{{ if lt .Percentage 20 }}#FF6432{{ end }}"
+          ],
+          "template": " {{ if eq .State \"Charging\" }}󰂄{{ else if eq .State \"Full\" }}󰁹{{ else }}󰁺{{ end }} {{ .Percentage }}% ▸",
+          "properties": {
+            "display_error": false
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "{{ if env \"XYNO_UPTIME\" }} ⬆ {{ env \"XYNO_UPTIME\" }} ▸{{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "{{ if env \"XYNO_IP\" }} 󰩟 {{ env \"XYNO_IP\" }} ▸{{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#FF3296",
+          "template": "{{ if env \"XYNO_PROCS\" }} 󰄹 {{ env \"XYNO_PROCS\" }} ▸{{ end }}"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#00E5FF",
+          "template": "╰─ "
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#FF6432",
+          "template": "{{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin"
+          }
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "#EE00EE",
+          "template": "{{ .CurrentDate | date \"Mon 02 Jan  15:04\" }} "
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#00E5AA",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#FF6432{{ end }}"
+          ],
+          "template": "{{ if gt .Code 0 }}✗{{ else }}❯{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ]
+    }
+  ]
+}
