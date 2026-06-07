@@ -300,9 +300,13 @@
           "foreground_templates": [
             "{{ if lt .Percentage 20 }}#FF6432{{ end }}"
           ],
-          "template": " {{ if eq .State \"Charging\" }}󰂄{{ else if eq .State \"Full\" }}󰁹{{ else }}󰁺{{ end }} {{ .Percentage }}% ▸",
+          "template": " {{ .Icon }} {{ .Percentage }}% ▸",
           "properties": {
-            "display_error": false
+            "display_error": false,
+            "charged_icon": "󰁹",
+            "charging_icon": "󰂄",
+            "discharging_icon": "󰁺",
+            "not_charging_icon": "󰁺"
           }
         },
         {

@@ -61,8 +61,17 @@ Set-PSReadLineOption -Colors @{
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin -ErrorAction SilentlyContinue
 
 # Carapace — annotated completions (flags, subcommands, argument values) for 1000+ CLI tools
-$env:CARAPACE_BRIDGES = 'zsh,fish,bash'
-carapace _carapace | Out-String | Invoke-Expression
+$_carapace = (Get-Command carapace -ErrorAction SilentlyContinue)?.Source
+if (-not $_carapace) {
+    $_carapace = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" `
+        -Recurse -Filter 'carapace.exe' -ErrorAction SilentlyContinue |
+        Where-Object { $_.FullName -match 'rsteube' } |
+        Select-Object -First 1 -ExpandProperty FullName
+}
+if ($_carapace) {
+    $env:CARAPACE_BRIDGES = 'zsh,fish,bash'
+    & $_carapace _carapace | Out-String | Invoke-Expression
+}
 
 # Multi-line input — Shift+Enter inserts newline, Enter submits
 Set-PSReadLineKeyHandler -Key Shift+Enter -Function AddLine
